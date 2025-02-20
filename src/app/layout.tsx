@@ -1,18 +1,27 @@
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
 
-const inter = Inter({
+const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin-ext'],
 })
 
 export const metadata: Metadata = {
-  title:
-    'EmpreendaFácil | Finanças Descomplicadas para Freelancers e Microempresários',
+  title: 'EmpreendaFácil | Finanças para Freelancers e Microempresários',
   description:
-    'EmpreendaFácil é um micro-SaaS para freelancers e microempreendedores que buscam gerenciar suas finanças de maneira simples e eficaz. Ele oferece recursos como o controle de receitas e despesas, geração de faturas e relatórios financeiros, e lembretes de cobranças, tudo em uma interface intuitiva.',
+    'O EmpreendaFácil ajuda freelancers e autônomos a gerenciar projetos, clientes e finanças de forma simples e eficiente. Experimente grátis',
+  authors: [
+    { name: 'Guilherme Henrique Marques', url: 'https://ghmarques.vercel.app' },
+  ],
+  keywords: [
+    'gestão financeira para freelancers',
+    'controle de clientes',
+    'finanças para autônomos',
+    'gestão de projetos',
+    'precificação para devs',
+  ],
 }
 
 export default function RootLayout({
@@ -22,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased`}>{children}</body>
     </html>
   )
 }
