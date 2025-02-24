@@ -9,11 +9,11 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'EmpreendaFácil | Finanças para Freelancers e Microempresários',
+  title: 'TrampoSync | Finanças para Freelancers e Microempresários',
   description:
-    'O EmpreendaFácil ajuda freelancers e autônomos a gerenciar projetos, clientes e finanças de forma simples e eficiente. Experimente grátis',
+    'TrampoSync é uma plataforma web construída para ajudar freelancers e autônomos a gerenciarem seus projetos e clientes de forma simples e eficiente. O objetivo é oferecer uma solução prática e organizada para controlar receita, despesas e lucro, permitindo que você foque no que realmente importa: o seu trabalho.',
   authors: [
-    { name: 'Guilherme Henrique Marques', url: 'https://ghmarques.vercel.app' },
+    { name: 'Guilherme Henrique Marques', url: 'https://www.ghmarques.me/' },
   ],
   keywords: [
     'gestão financeira para freelancers',

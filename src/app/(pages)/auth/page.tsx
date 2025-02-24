@@ -6,7 +6,7 @@ import {} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Entrar | EmpreendaFácil',
+  title: 'Entrar | TrampoSync',
 }
 
 export default function Auth() {
@@ -15,11 +15,11 @@ export default function Auth() {
       <div className="bg-secondary w-[40%] p-10 flex items-center justify-center">
         <div className="w-10/12">
           <h1 className="text-2xl text-primary text-center">
-            EmpreendaFácil<span className="text-primary-foreground">.</span>
+            TrampoSync<span className="text-primary-foreground">.</span>
           </h1>
 
           <h2 className="text-primary-foreground text-xl text-center my-1">
-            Entre na EmpreendaFácil
+            Entre na TrampoSync
           </h2>
 
           <p className="text-popover-foreground text-xs text-center mb-3">

@@ -1,6 +1,6 @@
-# EmpreendaFácil
+# TrampoSync
 
-**EmpreendaFácil** é um micro-SaaS para freelancers e microempreendedores que buscam gerenciar suas finanças de maneira simples e eficaz. Ele oferece recursos como o controle de receitas e despesas, geração de faturas e relatórios financeiros, e lembretes de cobranças, tudo em uma interface intuitiva.
+**TrampoSync** é um micro-SaaS para freelancers e microempreendedores que buscam gerenciar suas finanças de maneira simples e eficaz. Ele oferece recursos como o controle de receitas e despesas, geração de faturas e relatórios financeiros, e lembretes de cobranças, tudo em uma interface intuitiva.
 
 Este projeto foi desenvolvido com **Next.js** e **tRPC**, garantindo uma experiência ágil e tipada entre o front-end e o back-end.
 
