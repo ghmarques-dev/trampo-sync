@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 
-import {} from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
+import { ButtonSignIn } from './_components/button-sign-in'
 
 export const metadata: Metadata = {
   title: 'Entrar | TrampoSync',
@@ -27,15 +25,7 @@ export default function Auth() {
             facilidade!
           </p>
 
-          <Button variant="secondary" className="w-full">
-            <Image
-              alt="Logo do Google"
-              src="/images/Google.png"
-              width="24"
-              height="24"
-            />
-            <span>Continuar com o Google</span>
-          </Button>
+          <ButtonSignIn />
         </div>
       </div>
 
@@ -46,9 +36,11 @@ export default function Auth() {
             facilidade!
           </h2>
 
-          <img
+          <Image
             src="/images/Dashboard-example.png"
             alt="Imagem ilustrativa do Dashbord"
+            width={600}
+            height={333}
           />
         </div>
       </div>

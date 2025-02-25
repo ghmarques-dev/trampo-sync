@@ -1,7 +1,9 @@
+import { Toaster } from 'sonner'
 import { Poppins } from 'next/font/google'
 import type { Metadata } from 'next'
 
 import '@/styles/globals.css'
+import { TRPCProvider } from './_trpc/provider'
 
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
@@ -32,7 +34,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${poppins.className} antialiased min-h-screen`}>
-        {children}
+        <TRPCProvider>
+          <div>{children}</div>
+
+          <Toaster richColors />
+        </TRPCProvider>
       </body>
     </html>
   )
