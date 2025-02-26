@@ -56,7 +56,6 @@
   
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -65,3 +64,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply w-1 bg-foreground
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1 bg-primary rounded-xl
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply w-1 bg-primary rounded-xl
+  }
+}
+
+body { 
+  overflow-x: hidden; 
+}
+

@@ -10,11 +10,13 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname === '/auth' && token) {
-    return NextResponse.redirect(new URL(getUrl('/app'), request.url))
+    return NextResponse.redirect(new URL(getUrl({ path: '/app' }), request.url))
   }
 
   if (pathname.startsWith('/app') && !token) {
-    return NextResponse.redirect(new URL(getUrl('/auth'), request.url))
+    return NextResponse.redirect(
+      new URL(getUrl({ path: '/auth' }), request.url),
+    )
   }
 
   return NextResponse.next()

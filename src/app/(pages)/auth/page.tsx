@@ -12,7 +12,7 @@ export default function Auth() {
     <div className="flex h-screen">
       <div className="bg-secondary w-[40%] p-10 flex items-center justify-center">
         <div className="w-10/12">
-          <h1 className="text-2xl text-primary text-center">
+          <h1 className="text-2xl text-primary text-center font-medium">
             TrampoSync<span className="text-primary-foreground">.</span>
           </h1>
 

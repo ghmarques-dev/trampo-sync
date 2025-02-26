@@ -1,3 +1,5 @@
+import { PropsWithChildren } from 'react'
+
 import { Toaster } from 'sonner'
 import { Poppins } from 'next/font/google'
 import type { Metadata } from 'next'
@@ -26,11 +28,7 @@ export const metadata: Metadata = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="pt-br">
       <body className={`${poppins.className} antialiased min-h-screen`}>
