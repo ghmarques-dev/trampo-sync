@@ -68,3 +68,14 @@ export function returnFirstName({ fullName }: ReturnFirstNameProps): string {
 
   return firstLetterUppercase + restOfName
 }
+
+type FormatterForReal = {
+  value: number
+}
+
+export function formatterForReal({ value }: FormatterForReal) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(value)
+}

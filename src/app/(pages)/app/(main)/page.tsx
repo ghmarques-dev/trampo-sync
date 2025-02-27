@@ -20,7 +20,7 @@ export default async function Dashboard() {
   return (
     <div className="p-20 m-auto px-16 w-full max-w-6xl">
       <div>
-        <h2 className="text-xl text-primary-foreground text-left font-medium mb-3">
+        <h2 className="text-xl text-primary-foreground text-left font-semibold mb-3">
           Seja bem-vindo(a), {returnFirstName({ fullName: session.user.name! })}
           <span className="text-primary">.</span>
         </h2>
@@ -29,7 +29,7 @@ export default async function Dashboard() {
       </div>
 
       <div className="mt-16">
-        <h2 className="text-xl text-primary-foreground text-left font-medium mb-3">
+        <h2 className="text-xl text-primary-foreground text-left font-semibold mb-3">
           Ações rápidas
         </h2>
 
@@ -57,7 +57,7 @@ export default async function Dashboard() {
 
       <div className="mt-16">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl text-primary-foreground text-left font-medium mb-3">
+          <h2 className="text-xl text-primary-foreground text-left font-semibold mb-3">
             Acompanhe os seus projetos
           </h2>
 

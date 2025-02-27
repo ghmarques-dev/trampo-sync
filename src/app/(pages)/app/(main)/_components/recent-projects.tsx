@@ -1,3 +1,4 @@
+import { formatterForReal } from '@/utils'
 import {
   Table,
   TableBody,
@@ -7,7 +8,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { StatusBadge } from './status-badge'
+import { StatusBadge } from '../../projects/status-badge'
 
 type Project = {
   id: string
@@ -67,12 +68,7 @@ export function RecentProjects() {
               <StatusBadge status={project.status} />
             </TableCell>
 
-            <TableCell>
-              {new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-              }).format(project.cost)}
-            </TableCell>
+            <TableCell>{formatterForReal({ value: project.cost })}</TableCell>
 
             <TableCell>
               {project.daysToDelivery < 0 ? (
