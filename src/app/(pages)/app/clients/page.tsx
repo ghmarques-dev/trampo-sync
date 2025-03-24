@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
-import { Search, User } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Client } from '@prisma/client'
 
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { DataTable } from '@/components/data-table'
+import { DataTable } from '@/components/shared/data-table'
 
 import { columns } from './columns'
+import { CreateClientDialog } from './_components/create-client-dialog'
 
 export const metadata: Metadata = {
   title: 'Clientes | TrampoSync',
@@ -59,10 +59,7 @@ export default function Clients() {
             />
           </div>
 
-          <Button variant="secondary">
-            <User className="text-primary h-6 w-6" />
-            Adicionar cliente
-          </Button>
+          <CreateClientDialog />
         </div>
 
         <DataTable data={clients} columns={columns} />

@@ -6,8 +6,8 @@ import {
   TrendingUp,
 } from 'lucide-react'
 
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import { Badge } from '../ui/badge'
 
 export function FinanceSummary() {
   return (

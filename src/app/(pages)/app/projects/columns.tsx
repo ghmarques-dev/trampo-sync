@@ -6,9 +6,7 @@ import { Project } from '@prisma/client'
 
 import { formatterForReal } from '@/utils'
 import { Button } from '@/components/ui/button'
-import { Column } from '@/components/data-table'
-
-import { StatusBadge } from './status-badge'
+import { Column, StatusBadge } from '@/components/shared'
 
 export const columns: Column<Project>[] = [
   { header: 'Nome do Projeto', accessorKey: 'name' },

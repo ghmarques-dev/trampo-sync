@@ -4,7 +4,7 @@ import { EllipsisVertical } from 'lucide-react'
 import { Client } from '@prisma/client'
 
 import { Button } from '@/components/ui/button'
-import { Column } from '@/components/data-table'
+import { Column } from '@/components/shared'
 
 export const columns: Column<Client>[] = [
   {
@@ -23,7 +23,7 @@ export const columns: Column<Client>[] = [
     header: 'Ações',
     accessorKey: 'id',
     cell: () => (
-      <div className="flex space-x-2">
+      <div>
         <Button
           variant="default"
           className="border-[1px] border-solid border-primary bg-popover"

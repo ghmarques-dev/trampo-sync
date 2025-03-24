@@ -19,7 +19,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination'
 
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
 export type Column<T> = {
   header: string
@@ -64,7 +64,12 @@ export function DataTable<T>({
         <TableHeader>
           <TableRow>
             {columns.map((column) => (
-              <TableHead key={column.header}>{column.header}</TableHead>
+              <TableHead
+                key={column.header}
+                className={`w-1/${columns.length}`}
+              >
+                {column.header}
+              </TableHead>
             ))}
           </TableRow>
         </TableHeader>

@@ -5,12 +5,10 @@ import { BriefcaseConveyorBelt, CircleDollarSign, User } from 'lucide-react'
 import { returnFirstName } from '@/utils'
 import { auth } from '@/services/auth'
 import { Button } from '@/components/ui/button'
-import { FinanceSummary } from '@/components/finance-summary'
-
-import { RecentProjects } from './_components/recent-projects'
+import { FinanceSummary } from '@/components/shared/finance-summary'
 
 export const metadata: Metadata = {
-  title: 'Dashboard | TrampoSync',
+  title: 'Início | TrampoSync',
 }
 
 export default async function Dashboard() {
@@ -34,9 +32,11 @@ export default async function Dashboard() {
         </h2>
 
         <div className="flex gap-4 w-full">
-          <Button variant="secondary">
-            <User className="text-primary h-6 w-6" />
-            Adicionar cliente
+          <Button variant="secondary" asChild>
+            <Link href="/app/clients">
+              <User className="text-primary h-6 w-6" />
+              Adicionar cliente
+            </Link>
           </Button>
 
           <Button variant="secondary" asChild>
@@ -55,7 +55,7 @@ export default async function Dashboard() {
         </div>
       </div>
 
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <div className="flex items-center justify-between">
           <h2 className="text-xl text-primary-foreground text-left font-semibold mb-3">
             Acompanhe os seus projetos
@@ -65,9 +65,7 @@ export default async function Dashboard() {
             <Link href="/app/projects">Ver todos</Link>
           </Button>
         </div>
-
-        <RecentProjects />
-      </div>
+      </div> */}
     </div>
   )
 }

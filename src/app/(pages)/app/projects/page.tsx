@@ -5,7 +5,7 @@ import { Project } from '@prisma/client'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { DataTable } from '@/components/data-table'
+import { DataTable } from '@/components/shared'
 
 import { columns } from './columns'
 
