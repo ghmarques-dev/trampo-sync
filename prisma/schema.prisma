@@ -13,11 +13,46 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
-  accounts      Account[]
-  sessions      Session[]
+
+  accounts Account[]
+  sessions Session[]
+  clients  Client[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Client {
+  id    String  @id @default(uuid())
+  name  String
+  email String?
+  phone String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  projects Project[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum ProjectStatus {
+  Planned
+  Progress
+  Completed
+  Canceled
+}
+
+model Project {
+  id             String        @id @default(uuid())
+  name           String
+  status         ProjectStatus @default(Planned)
+  budgetInCents  BigInt
+  daysToDelivery DateTime
+
+  client   Client @relation(fields: [clientId], references: [id])
+  clientId String
 }
 
 model Account {
