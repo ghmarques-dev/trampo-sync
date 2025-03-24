@@ -1,18 +1,18 @@
-import { Badge } from '@/components/ui/badge'
+import { ProjectStatus } from '@prisma/client'
 
-type ProjectStatus = 'Em andamento' | 'Concluído' | 'Atrasado'
+import { Badge } from '@/components/ui/badge'
 
 const statusClasses = new Map<ProjectStatus, string>([
   [
-    'Em andamento',
+    'Progress',
     'bg-[#FFEA00]/30 border border-[#FFEA00] text-[#FFEA00] hover:bg-[#FFEA00]/50',
   ],
   [
-    'Concluído',
+    'Completed',
     'bg-[#33FF00]/30 border border-[#33FF00] text-[#33FF00] hover:bg-[#33FF00]/50',
   ],
   [
-    'Atrasado',
+    'Canceled',
     'bg-[#ee3131]/30 border border-[#ee3131] text-[#ee3131] hover:bg-[#ee3131]/50',
   ],
 ])

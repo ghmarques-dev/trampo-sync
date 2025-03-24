@@ -70,12 +70,14 @@ export function returnFirstName({ fullName }: ReturnFirstNameProps): string {
 }
 
 type FormatterForReal = {
-  value: number
+  valueInCents: bigint
 }
 
-export function formatterForReal({ value }: FormatterForReal) {
+export function formatterForReal({ valueInCents }: FormatterForReal) {
+  const realNumber = Number(valueInCents / 100n)
+
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
-  }).format(value)
+  }).format(realNumber)
 }

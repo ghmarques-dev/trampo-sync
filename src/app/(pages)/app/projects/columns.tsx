@@ -1,45 +1,56 @@
 'use client'
 
 import { EllipsisVertical } from 'lucide-react'
+import { differenceInDays } from 'date-fns'
+import { Project } from '@prisma/client'
 
 import { formatterForReal } from '@/utils'
 import { Button } from '@/components/ui/button'
+import { Column } from '@/components/data-table'
 
 import { StatusBadge } from './status-badge'
 
-export const columns = [
+export const columns: Column<Project>[] = [
   { header: 'Nome do Projeto', accessorKey: 'name' },
-  { header: 'Cliente', accessorKey: 'client' },
   {
     header: 'Status',
     accessorKey: 'status',
-    cell: (project) => <StatusBadge status={project.status} />,
+    cell: (project: Project) => <StatusBadge status={project.status} />,
   },
   {
     header: 'Custo (R$)',
-    accessorKey: 'cost',
-    cell: (project) => formatterForReal({ value: project.cost }),
+    accessorKey: 'budgetInCents',
+    cell: (project: Project) =>
+      formatterForReal({ valueInCents: project.budgetInCents }),
   },
   {
     header: 'Dias p/ Entrega',
     accessorKey: 'daysToDelivery',
-    cell: (project) => {
-      if (project.daysToDelivery < 0) {
+    cell: (project: Project) => {
+      const daysToDeliveryNumber = differenceInDays(
+        new Date(),
+        project.daysToDelivery,
+      )
+
+      if (daysToDeliveryNumber < 0) {
         return (
           <span className="text-[#ee3131]">
-            {Math.abs(project.daysToDelivery)} dias atrasado
+            {Math.abs(daysToDeliveryNumber)} dias atrasado
           </span>
         )
-      } else if (project.daysToDelivery === 0) {
-        return <span className="text-green-600">Entregue</span>
-      } else {
-        return <span>{project.daysToDelivery} dias</span>
       }
+
+      if (daysToDeliveryNumber === 0) {
+        return <span className="text-green-600">Entregue</span>
+      }
+
+      return <span>{daysToDeliveryNumber} dias</span>
     },
   },
   {
     header: 'Ações',
-    cell: (data) => (
+    accessorKey: 'id',
+    cell: () => (
       <div className="flex space-x-2">
         <Button
           variant="default"
@@ -52,7 +63,3 @@ export const columns = [
     ),
   },
 ]
-
-const handleView = (id: string) => console.log(`Visualizando projeto ${id}`)
-const handleEdit = (id: string) => console.log(`Editando projeto ${id}`)
-const handleDelete = (id: string) => console.log(`Deletando projeto ${id}`)

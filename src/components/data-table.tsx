@@ -21,9 +21,9 @@ import {
 
 import { Button } from './ui/button'
 
-type Column<T> = {
+export type Column<T> = {
   header: string
-  accessorKey: keyof T | string
+  accessorKey: keyof T
   cell?: (item: T) => React.ReactNode
 }
 

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Search, User } from 'lucide-react'
+import { Client } from '@prisma/client'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,20 +12,24 @@ export const metadata: Metadata = {
   title: 'Clientes | TrampoSync',
 }
 
-const clients = [
+const clients: Client[] = [
   {
     id: '1',
+    userId: 'user-id',
     name: 'João Silva',
     email: 'joao@example.com',
     phone: '41 998978780',
-    totalReceived: '2023-05-15',
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
   {
     id: '2',
-    name: 'Maria Santos',
-    email: 'maria@example.com',
+    userId: 'user-id',
+    name: 'João Silva',
+    email: 'joao@example.com',
     phone: '41 998978780',
-    totalReceived: '2023-03-20',
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
 ]
 

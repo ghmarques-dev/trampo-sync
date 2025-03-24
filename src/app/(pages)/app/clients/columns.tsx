@@ -1,10 +1,12 @@
 'use client'
 
 import { EllipsisVertical } from 'lucide-react'
+import { Client } from '@prisma/client'
 
 import { Button } from '@/components/ui/button'
+import { Column } from '@/components/data-table'
 
-export const columns = [
+export const columns: Column<Client>[] = [
   {
     header: 'Nome',
     accessorKey: 'name',
@@ -18,12 +20,9 @@ export const columns = [
     accessorKey: 'phone',
   },
   {
-    header: 'Total recebido',
-    accessorKey: 'totalReceived',
-  },
-  {
     header: 'Ações',
-    cell: (data) => (
+    accessorKey: 'id',
+    cell: () => (
       <div className="flex space-x-2">
         <Button
           variant="default"

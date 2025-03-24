@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { BriefcaseConveyorBelt, Search } from 'lucide-react'
+import { Project } from '@prisma/client'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -12,30 +13,38 @@ export const metadata: Metadata = {
   title: 'Projetos | TrampoSync',
 }
 
-const projects = [
+const projects: Project[] = [
   {
     id: '1',
     name: 'Website Redesign',
-    client: 'Tech Innovators Inc.',
-    status: 'Em andamento',
-    cost: 15000,
-    daysToDelivery: 15,
+    status: 'Progress',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
+  },
+  {
+    id: '1',
+    name: 'Website Redesign',
+    status: 'Progress',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
   {
     id: '2',
-    name: 'Mobile App Development',
-    client: 'StartUp Solutions',
-    status: 'Atrasado',
-    cost: 30000,
-    daysToDelivery: -5,
+    name: 'Website Redesign',
+    status: 'Completed',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
   {
     id: '3',
-    name: 'E-commerce Platform',
-    client: 'Global Retail Co.',
-    status: 'Em andamento',
-    cost: 25000,
-    daysToDelivery: 30,
+    name: 'Website Redesign',
+    status: 'Canceled',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
 ]
 

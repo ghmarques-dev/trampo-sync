@@ -1,3 +1,6 @@
+import { differenceInDays } from 'date-fns'
+import { Project } from '@prisma/client'
+
 import { formatterForReal } from '@/utils'
 import {
   Table,
@@ -10,39 +13,38 @@ import {
 
 import { StatusBadge } from '../../projects/status-badge'
 
-type Project = {
-  id: string
-  name: string
-  client: string
-  status: 'Em andamento' | 'Concluído' | 'Atrasado'
-  cost: number
-  daysToDelivery: number
-}
-
 const projects: Project[] = [
   {
     id: '1',
     name: 'Website Redesign',
-    client: 'Tech Innovators Inc.',
-    status: 'Em andamento',
-    cost: 15000,
-    daysToDelivery: 15,
+    status: 'Progress',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
+  },
+  {
+    id: '1',
+    name: 'Website Redesign',
+    status: 'Progress',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
   {
     id: '2',
-    name: 'Mobile App Development',
-    client: 'StartUp Solutions',
-    status: 'Atrasado',
-    cost: 30000,
-    daysToDelivery: -5,
+    name: 'Website Redesign',
+    status: 'Completed',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
   {
     id: '3',
-    name: 'E-commerce Platform',
-    client: 'Global Retail Co.',
-    status: 'Em andamento',
-    cost: 25000,
-    daysToDelivery: 30,
+    name: 'Website Redesign',
+    status: 'Canceled',
+    clientId: 'client-01',
+    budgetInCents: BigInt(123),
+    daysToDelivery: new Date(),
   },
 ]
 
@@ -60,29 +62,37 @@ export function RecentProjects() {
       </TableHeader>
 
       <TableBody>
-        {projects.map((project) => (
-          <TableRow key={project.id}>
-            <TableCell>{project.name}</TableCell>
-            <TableCell>{project.client}</TableCell>
-            <TableCell>
-              <StatusBadge status={project.status} />
-            </TableCell>
+        {projects.map((project) => {
+          const daysToDeliveryNumber = differenceInDays(
+            new Date(),
+            project.daysToDelivery,
+          )
 
-            <TableCell>{formatterForReal({ value: project.cost })}</TableCell>
+          return (
+            <TableRow key={project.id}>
+              <TableCell>{project.name}</TableCell>
+              <TableCell>
+                <StatusBadge status={project.status} />
+              </TableCell>
 
-            <TableCell>
-              {project.daysToDelivery < 0 ? (
-                <span className="text-[#ee3131]">
-                  {Math.abs(project.daysToDelivery)} dias atrasado
-                </span>
-              ) : project.daysToDelivery === 0 ? (
-                <span className="text-green-600">Entregue</span>
-              ) : (
-                <span>{project.daysToDelivery} dias</span>
-              )}
-            </TableCell>
-          </TableRow>
-        ))}
+              <TableCell>
+                {formatterForReal({ valueInCents: project.budgetInCents })}
+              </TableCell>
+
+              <TableCell>
+                {daysToDeliveryNumber < 0 ? (
+                  <span className="text-[#ee3131]">
+                    {Math.abs(daysToDeliveryNumber)} dias atrasado
+                  </span>
+                ) : daysToDeliveryNumber === 0 ? (
+                  <span className="text-green-600">Entregue</span>
+                ) : (
+                  <span>{daysToDeliveryNumber} dias</span>
+                )}
+              </TableCell>
+            </TableRow>
+          )
+        })}
       </TableBody>
     </Table>
   )
